@@ -1,11 +1,10 @@
 package br.com.med.clinica.administrativo.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
+import br.com.med.clinica.administrativo.model.Funcionario;
+import br.com.med.clinica.administrativo.model.FuncionarioDTO;
+import br.com.med.clinica.administrativo.model.FuncionarioMapper;
+import br.com.med.clinica.administrativo.repository.EnderecoRepository;
+import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +12,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.med.clinica.administrativo.model.Funcionario;
-import br.com.med.clinica.administrativo.model.FuncionarioDTO;
-import br.com.med.clinica.administrativo.model.FuncionarioMapper;
-import br.com.med.clinica.administrativo.repository.EnderecoRepository;
-import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class FuncionarioController {
@@ -77,7 +74,7 @@ public class FuncionarioController {
 
 
 	@PostMapping("/funcionario/salvar")
-	public String salvar(@Valid FuncionarioDTO funcionarioDTO, BindingResult bindingResult) {
+	public String salvar(FuncionarioDTO funcionarioDTO, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			return "/administrativo/funcionarioform";

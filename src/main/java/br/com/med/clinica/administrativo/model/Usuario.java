@@ -1,17 +1,7 @@
 package br.com.med.clinica.administrativo.model;
 
+import javax.persistence.*;
 import java.util.Objects;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -31,11 +21,9 @@ public class Usuario {
 	private String username;
 
 	/** The email. */
-	@Email
 	private String email;
 
 	/** The password. */
-	@Size(max = 8, min = 4, message = "A senha deve ser de 4 a 8 digitos")
 	private String password;
 
 	/** The funcionario. */

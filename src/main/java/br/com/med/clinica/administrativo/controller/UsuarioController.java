@@ -1,10 +1,9 @@
 package br.com.med.clinica.administrativo.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
-
+import br.com.med.clinica.administrativo.model.Funcionario;
+import br.com.med.clinica.administrativo.model.Usuario;
+import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
+import br.com.med.clinica.administrativo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -13,10 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.med.clinica.administrativo.model.Funcionario;
-import br.com.med.clinica.administrativo.model.Usuario;
-import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
-import br.com.med.clinica.administrativo.repository.UsuarioRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UsuarioController {
@@ -51,7 +48,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/usuario/salvar")
-	public String salvar(@Valid Usuario entity, BindingResult bindingResult) {
+	public String salvar(Usuario entity, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			return "/administrativo/usuarioform";

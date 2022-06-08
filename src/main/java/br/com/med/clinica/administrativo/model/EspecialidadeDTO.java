@@ -1,7 +1,5 @@
 package br.com.med.clinica.administrativo.model;
 
-import javax.persistence.Column;
-
 public class EspecialidadeDTO {
 
 	

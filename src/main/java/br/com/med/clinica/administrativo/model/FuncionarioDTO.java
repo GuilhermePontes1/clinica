@@ -1,6 +1,5 @@
 package br.com.med.clinica.administrativo.model;
 
-import javax.validation.constraints.NotBlank;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -18,7 +17,6 @@ public class FuncionarioDTO {
 	
 	/** The funcionario nome. */
 	//private String funcionario_nome;
-	@NotBlank
 	private String nome;
 
 	

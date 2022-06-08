@@ -1,10 +1,10 @@
 package br.com.med.clinica.administrativo.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
-
+import br.com.med.clinica.administrativo.model.*;
+import br.com.med.clinica.administrativo.repository.EnderecoRepository;
+import br.com.med.clinica.administrativo.repository.EspecialidadeRepository;
+import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
+import br.com.med.clinica.administrativo.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -13,16 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.med.clinica.administrativo.model.Endereco;
-import br.com.med.clinica.administrativo.model.Especialidade;
-import br.com.med.clinica.administrativo.model.Funcionario;
-import br.com.med.clinica.administrativo.model.Medico;
-import br.com.med.clinica.administrativo.model.MedicoDTO;
-import br.com.med.clinica.administrativo.model.MedicoMapper;
-import br.com.med.clinica.administrativo.repository.EnderecoRepository;
-import br.com.med.clinica.administrativo.repository.EspecialidadeRepository;
-import br.com.med.clinica.administrativo.repository.FuncionarioRepository;
-import br.com.med.clinica.administrativo.repository.MedicoRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MedicoController {
@@ -85,7 +77,7 @@ public class MedicoController {
 	}
 
 	@PostMapping("/funcionario/medico/update")
-	public String update(@Valid MedicoDTO entity, BindingResult bindingResult) {
+	public String update( MedicoDTO entity, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "/administrativo/medicoupdate";
 		}
@@ -120,7 +112,7 @@ public class MedicoController {
 	}
 
 	@PostMapping("/medico/salvar")
-	public String salvar(@Valid MedicoDTO medicoDTO, BindingResult bindingResult) {
+	public String salvar(MedicoDTO medicoDTO, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "/administrativo/medicoform";
 		}
